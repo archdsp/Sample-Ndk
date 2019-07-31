@@ -1,0 +1,13 @@
+LOCAL_PATH := $(call my-dir)
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := main
+LOCAL_SRC_FILES := $(LOCAL_PATH)/main.cpp
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/main.hpp
+# LOCAL_CFLAGS += -fPIE
+# LOCAL_LDFLAGS += -fPIE -pie
+
+LOCAL_SHARED_LIBRARIES := glob
+$(call import-module
+
+include $(BUILD_EXECUTABLE)

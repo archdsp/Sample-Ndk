@@ -1,0 +1,36 @@
+#ifndef _MODULE1_H_
+#define _MODULE1_H_
+
+#include "log.h"
+/*
+
+__BEGIN_C_DECLS와 END_C_DECLS는 
+C++ 에서 C++ 컴파일러가 C 코드의 함수명을 맹글링(임의의 이름으로 
+바꿔서 유사 이름을 가진 라이브러리나 호환 가능한 이종언어, wrapper사이의 언어끼리 
+충돌하지 않도록 해주는 것)하지 않고 C와 호환 가능하게 하기 위해 define한 변수입니다.
+  
+아래와 같이 명시 되어있어 C++일 경우에는 'extern "C" {}', 라는 문장으로, 아닐 경우는
+공백문자로 치환없이 정의만 되어 코드에 영향을 주지 않도록 합니다.
+앞으로 할 JNI 개발에 'extern "C" {}' 문장을 자주 보게 될 것입니다.
+
+#undef BEGIN_C_DECLS
+#undef END_C_DECLS
+#ifdef __cplusplus
+# define BEGIN_C_DECLS extern "C" {
+# define END_C_DECLS }
+#else
+# define BEGIN_C_DECLS
+# define END_C_DECLS 
+#endif
+*/
+
+__BEGIN_DECLS
+
+#if __ANDROID_API__ >= 27
+#define WORK_ONLY_API_27(test_msg) LOGD("이 매크로는 API 27 이상에서만 등장합니다")
+#endif
+
+__END_DECLS
+
+#endif
+

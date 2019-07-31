@@ -1,0 +1,13 @@
+LOCAL_PATH := $(call my-dir)
+include $(CLEAR_VARS)
+LOCAL_MODULE := module1
+LOCAL_SRC_FILES := $(LOCAL_PATH)/module1.c
+LOCAL_C_INCLUDES += $(LOCAL_PATH)
+
+# 아래 info 함수는 echo와 같은 역할
+# $(info Check Variable likt this $(LOCAL_C_INCLUDES))
+LOCAL_CFLAGS += -fPIE -DANDROID_DEBUG
+LOCAL_LDFLAGS += -fPIE -pie
+
+include $(BUILD_SHARED_LIBRARY)
+
